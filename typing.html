@@ -26,7 +26,7 @@
     </head>
     <body>
         
-        <div id="theWord" style="font-size: 28; font-weight: 800">t e</div>
+        <div id="theWord" style="font-size: 28; font-weight: 800">     The       Quick     </div>
     <div id="hide" style="display: none;"></div>
     Total letter: <span id="total"></span><br>
     Correct letter: <span id="correct">0</span><br>
@@ -35,8 +35,10 @@
     Correct word: <span id="correctw">0</span><br>
     Incorrect word: <span id="incorrectw">0</span><br>
     <script>
-        var text1=$("#theWord").text();
-        $("#hide").text(text1+'^');
+        
+        var h1=$.trim($("#theWord").text());
+        var text1=h1.replace(/\s+/g, " ");
+        $("#hide").text($.trim(text1)+'^');
         $("#total").text(text1.length);
         $("#word").text(text1.split(' ').length);
         
@@ -66,7 +68,6 @@
                 $(".blinking").remove();
                 t += String.fromCharCode(e.which);  
                 var k=String.fromCharCode(e.which);  
-                console.log(word.substring(t.length-1, t.length));
                 if (word.substring(t.length-1, t.length) == '^') {      
                 alert('You have completed successfully');
                 end=1;
@@ -102,6 +103,6 @@
             }
         });
     </script>
-	    http://jsfiddle.net/iaezzy/pLpx5oLf/
     </body>
+    http://jsfiddle.net/iaezzy/pLpx5oLf/
 </html>
